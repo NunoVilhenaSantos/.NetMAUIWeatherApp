@@ -11,7 +11,6 @@ public partial class MainPage : ContentPage, IDisposable
 {
     private readonly RestService _restService;
     private WeatherData _weatherData;
-    private readonly List<MenuItem> _menuItems;
     private readonly FahrenheitCelsiusConverter _fahrenheitCelsiusConverter;
 
     // Variável para rastrear a unidade de temperatura
@@ -27,13 +26,6 @@ public partial class MainPage : ContentPage, IDisposable
         _restService = new RestService();
         _weatherData = new WeatherData();
 
-        _menuItems = new List<MenuItem>
-        {
-            new() {Title = "Opção 1", Icon = "icon1.png"},
-            new() {Title = "Opção 2", Icon = "icon2.png"},
-            new() {Title = "Opção 3", Icon = "icon3.png"},
-            new() {Title = "Sobre", Icon = "about.png"},
-        };
 
         CityEntry.Text = "São Paulo";
         GetWeatherButton.Clicked += OnGetWeatherButtonClicked;
@@ -50,11 +42,14 @@ public partial class MainPage : ContentPage, IDisposable
     }
 
 
+
     private void OpenAppShell_Clicked(object sender, EventArgs e)
     {
         // Navegue para o AppShell ou a página que contém o AppShell
         Navigation.PushAsync(new FlyoutPageDemo()); // Ou a página que contém o AppShell
     }
+
+
 
 
     private async void OnGetWeatherButtonClicked(object sender, EventArgs e)

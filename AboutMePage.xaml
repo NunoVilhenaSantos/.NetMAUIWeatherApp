@@ -1,12 +1,174 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WeatherApp.AboutMePage"
-             Title="AboutMePage">
+
+
+<ContentPage
+    x:Class="WeatherApp.AboutMePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WeatherApp"
+    xmlns:weatherApp="clr-namespace:WeatherApp"
+    Title="WeatherApp - About Me Page"
+    BackgroundColor="{DynamicResource SecondaryColor}">
+
+
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+        <Image
+            Margin="-20,0"
+            Aspect="Fill"
+            HeightRequest="330"
+            Source="overlay.svg"
+            VerticalOptions="StartAndExpand" />
+
+
+
+        <!--  Adicione a última imagem em uma Frame redonda  -->
+        <!--BackgroundColor="White"-->
+        <Frame
+            Margin="0,-260,0,20"
+            BorderColor="Transparent"
+            CornerRadius="50"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand">
+            <Image
+                HeightRequest="100"
+                Source="person_light_skin_tone_beard.svg"
+                WidthRequest="100" />
+        </Frame>
+
+        <Frame
+            Margin="20"
+            Padding="10"
+            CornerRadius="10"
+            HasShadow="True"
+            HeightRequest="300"
+            VerticalOptions="Start">
+
+            <Grid
+                Margin="0,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Image
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Source="person_light_skin_tone_beard.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AuthorNameLabel"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Default"
+                    Text="{Binding Name}"
+                    TextColor="Black" />
+
+
+                <Image
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Source="email.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AuthorEmailLabel"
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Default"
+                    Text="{Binding Email}"
+                    TextColor="Black" />
+
+
+                <Image
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Source="email.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AuthorEmail2Label"
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Default"
+                    Text="{Binding Email2}"
+                    TextColor="Black" />
+
+
+
+                <Image
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Source="email.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AuthorEmail3Label"
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Default"
+                    Text="{Binding Email3}"
+                    TextColor="Black" />
+
+
+                <Image
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Source="email_2_part.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AuthorAddressLabel"
+                    Grid.Row="5"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Default"
+                    Text="{Binding Address}"
+                    TextColor="Black" />
+
+
+
+                <Image
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Source="telephone_cabin.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AuthorMobilePhoneLabel"
+                    Grid.Row="6"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Default"
+                    Text="{Binding MobilePhone}"
+                    TextColor="Black" />
+
+            </Grid>
+
+
+        </Frame>
+
+
     </VerticalStackLayout>
+
+
 </ContentPage>

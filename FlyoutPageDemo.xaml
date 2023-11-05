@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 
 <Shell
-    x:Class="WeatherApp.FlyoutPageDemo"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:weatherApp="clr-namespace:WeatherApp"
+    x:Class="WeatherApp.FlyoutPageDemo"
     Title="WeatherApp.FlyoutPageDemo"
     FlyoutBehavior="Flyout"
     FlyoutVerticalScrollMode="Auto">
 
 
 
-    <FlyoutItem Title="Weather Main" Icon="main.svg">
+    <FlyoutItem Title="Weather Main" Icon="more/reshot_icon_weather_forecast.svg">
         <ShellContent ContentTemplate="{DataTemplate weatherApp:MainPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Weather Details" Icon="main.svg">
+    <FlyoutItem Title="Weather Details" Icon="more/reshot_icon_weather_2_appicon.svg">
         <ShellContent ContentTemplate="{DataTemplate weatherApp:DetailsPage}" />
     </FlyoutItem>
 

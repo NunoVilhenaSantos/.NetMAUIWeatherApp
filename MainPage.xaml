@@ -6,6 +6,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:helpers="clr-namespace:WeatherApp.Helpers"
     xmlns:local="clr-namespace:WeatherApp"
+    xmlns:weatherApp="clr-namespace:WeatherApp"
     BackgroundColor="{DynamicResource SecondaryColor}">
 
 
@@ -29,7 +30,7 @@
 
 
     <!--  Conteúdo da página principal  -->
-    <Grid Margin="20,20" VerticalOptions="FillAndExpand">
+    <Grid Margin="0" VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -43,7 +44,7 @@
 
         <Image
             Grid.RowSpan="4"
-            Margin="-20,-20"
+            Margin="0,0"
             Aspect="Fill"
             HeightRequest="330"
             Source="overlay.png"
@@ -51,7 +52,7 @@
 
         <StackLayout
             Grid.Row="0"
-            Margin="0,10"
+            Margin="20"
             HorizontalOptions="Start"
             Orientation="Vertical"
             Spacing="10"
@@ -190,6 +191,7 @@
                 TextColor="White" />
         </StackLayout>
 
+
         <Frame
             Grid.Row="3"
             Margin="0,20,0,20"
@@ -278,7 +280,9 @@
                             TextColor="#7D7D7D" />
                     </StackLayout>
                 </StackLayout>-->
-                <Image Grid.Column="1" Source="wind.png" />
+
+                <!--<Image Grid.Column="1" Source="wind.png" />-->
+                <Image Grid.Column="1" Source="windy.png" />
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
@@ -414,17 +418,17 @@
         </StackLayout>-->
         <Grid Grid.Row="4" Margin="0,0,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />       
+                <RowDefinition Height="Auto" />
                 <!--  Define a altura automática para cada linha  -->
-                <RowDefinition Height="Auto" />       
+                <RowDefinition Height="Auto" />
                 <!--  Define a altura automática para a segunda linha  -->
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="40" />       
+                <ColumnDefinition Width="40" />
                 <!--  Primeira coluna com tamanho automático para as imagens  -->
-                <ColumnDefinition Width="Auto" />     
+                <ColumnDefinition Width="Auto" />
                 <!--  Segunda coluna para a primeira label  -->
-                <ColumnDefinition />                  
+                <ColumnDefinition />
                 <!--  Terceira coluna para a segunda label  -->
             </Grid.ColumnDefinitions>
             <!--  Primeira linha  -->

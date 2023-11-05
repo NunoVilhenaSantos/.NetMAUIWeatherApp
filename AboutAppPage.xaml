@@ -1,12 +1,206 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="WeatherApp.AboutAppPage"
-             Title="AboutAppPage">
+
+
+<ContentPage
+    x:Class="WeatherApp.AboutAppPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:WeatherApp"
+    xmlns:weatherApp="clr-namespace:WeatherApp"
+    Title="WeatherApp - About App Page"
+    BackgroundColor="{DynamicResource SecondaryColor}">
+
+
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+
+        <Image
+            Margin="-20,0"
+            Aspect="Fill"
+            HeightRequest="330"
+            Source="overlay.svg"
+            VerticalOptions="StartAndExpand" />
+
+
+        <!--  Adicione a última imagem em uma Frame redonda  -->
+        <!--  BackgroundColor="White"  -->
+        <Frame
+            Margin="0,-300,0,0"
+            BorderColor="Transparent"
+            CornerRadius="50"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand">
+
+            <!--Source="reshot_icon_weather_2_appicon.svg"-->
+            <!--Source="reshot_icon_weather_forecast.svg"-->
+            <Image
+                HeightRequest="100"
+                Source="reshot_icon_weather_2_appicon.svg"
+                WidthRequest="100" />
+        </Frame>
+
+        <Frame
+            Margin="20"
+            Padding="10"
+            CornerRadius="10"
+            HasShadow="True"
+            HeightRequest="360"
+            VerticalOptions="Start">
+
+            <Grid
+                Margin="0,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Image
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Source="person_light_skin_tone_beard.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AppFunctionsLabel"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    Text="{Binding Name}"
+                    TextColor="Black"
+                    VerticalOptions="CenterAndExpand" />
+
+
+                <Image
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Source="email.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AppBuildLabel"
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{Binding Email}"
+                    TextColor="Black"
+                    VerticalOptions="CenterAndExpand" />
+
+
+                <Image
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Source="email.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AppVersionLabel"
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    Text="{Binding Email2}"
+                    TextColor="Black" />
+
+
+
+                <Image
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Source="email.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AppCurrentLabel"
+                    Grid.Row="4"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    Text="{Binding Email3}"
+                    TextColor="Black" />
+
+
+                <Image
+                    Grid.Row="5"
+                    Grid.Column="1"
+                    Source="email_2_part.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AppNameLabel"
+                    Grid.Row="5"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    Text="{Binding Address}"
+                    TextColor="Black" />
+
+
+
+                <Image
+                    Grid.Row="6"
+                    Grid.Column="1"
+                    Source="telephone_cabin.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AppPackageNameLabel"
+                    Grid.Row="6"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    Text="{Binding MobilePhone}"
+                    TextColor="Black" />
+
+
+
+                <Image
+                    Grid.Row="7"
+                    Grid.Column="1"
+                    Source="telephone_cabin.svg" />
+                <!--  HorizontalOptions="Center"  -->
+                <Label
+                    x:Name="AppPackagingModelLabel"
+                    Grid.Row="7"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    Text="{Binding MobilePhone}"
+                    TextColor="Black" />
+
+            </Grid>
+
+
+        </Frame>
+
+
+        <Label
+            x:Name="WelcomeLabel"
+            FontSize="Medium"
+            HorizontalOptions="CenterAndExpand"
+            Text="{Binding Name}"
+            VerticalOptions="CenterAndExpand" />
+
+
+
     </VerticalStackLayout>
+
+
 </ContentPage>

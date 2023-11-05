@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net7.0-maccatalyst;net7.0-ios;net7.0-android</TargetFrameworks>
-        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net7.0-windows10.0.19041</TargetFrameworks>
+        <TargetFrameworks>net7.0-maccatalyst;net7.0-ios;net7.0-android33.0</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(MSBuildRuntimeType)' == 'Full'">$(TargetFrameworks);net7.0-windows10.0.22621.0</TargetFrameworks>
         <OutputType>Exe</OutputType>
         <RootNamespace>WeatherApp</RootNamespace>
         <UseMaui>true</UseMaui>
@@ -83,6 +83,10 @@
         <None Remove="Resources\Images\animated\weather_sprite.svg" />
         <None Remove="Resources\Images\animated\weather_sunset.svg" />
         <None Remove="Resources\Images\cloudiness.png" />
+        <None Remove="Resources\Images\email.svg" />
+        <None Remove="Resources\Images\email_1_part.svg" />
+        <None Remove="Resources\Images\email_2_part.svg" />
+        <None Remove="Resources\Images\email_sign.svg" />
         <None Remove="Resources\Images\humidity.png" />
         <None Remove="Resources\Images\more\5896960_cloud_moon_rain_sun_weather_icon.svg" />
         <None Remove="Resources\Images\more\5896970_cloud_moon_rain_sun_weather_icon.svg" />
@@ -103,7 +107,11 @@
         <None Remove="Resources\Images\more\weather_icons_69_sun_down.svg" />
         <None Remove="Resources\Images\more\weather_icons_70_sun_up.svg" />
         <None Remove="Resources\Images\overlay.png" />
+        <None Remove="Resources\Images\person_light_skin_tone_beard.svg" />
         <None Remove="Resources\Images\pressure.png" />
+        <None Remove="Resources\Images\telephone.svg" />
+        <None Remove="Resources\Images\telephone_booth.svg" />
+        <None Remove="Resources\Images\telephone_cabin.svg" />
         <None Remove="Resources\Images\weather.png" />
         <None Remove="Resources\Images\weather_icons_34_sun_down.svg" />
         <None Remove="Resources\Images\weather_icons_35_sun_up.svg" />
@@ -121,17 +129,6 @@
       <MauiIcon Include="Resources\Images\animated\weather_sagittarius.svg" />
       <MauiIcon Include="Resources\Images\animated\weather_sprite.svg" />
       <MauiIcon Include="Resources\Images\animated\weather_sunset.svg" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <MauiImage Include="Resources\Images\more\about.svg" />
-      <MauiImage Include="Resources\Images\more\about_dot_me.svg" />
-      <MauiImage Include="Resources\Images\more\about_faq_help.svg" />
-      <MauiImage Include="Resources\Images\more\rainy_weather.svg" />
-      <MauiImage Include="Resources\Images\more\weather_icons_34_sun_down.svg" />
-      <MauiImage Include="Resources\Images\more\weather_icons_35_sun_up.svg" />
-      <MauiImage Include="Resources\Images\more\weather_icons_69_sun_down.svg" />
-      <MauiImage Include="Resources\Images\more\weather_icons_70_sun_up.svg" />
     </ItemGroup>
 
     <ItemGroup>
