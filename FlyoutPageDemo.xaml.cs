@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WeatherApp;
 
-public partial class FlyoutPageDemo : FlyoutPage
+public partial class FlyoutPageDemo : Shell
 {
     public FlyoutPageDemo()
     {
@@ -34,5 +34,13 @@ public partial class FlyoutPageDemo : FlyoutPage
     {
     }
 
+    private void ContentPage_DescendantAdded(object sender, ElementEventArgs e)
+    {
 
+    }
+
+    private void ContentPage_ChildAdded(object sender, ElementEventArgs e)
+    {
+
+    }
 }
