@@ -3,7 +3,7 @@
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace WeatherApp.WinUI;
+namespace WeatherApp.Platforms.Windows;
 
 /// <summary>
 /// Provides application-specific behavior to supplement the default Application class.
@@ -17,6 +17,11 @@ public partial class App : MauiWinUIApplication
     public App()
     {
         this.InitializeComponent();
+    }
+
+    private void InitializeComponent()
+    {
+        throw new NotImplementedException();
     }
 
     protected override MauiApp CreateMauiApp() => MauiProgram.CreateMauiApp();

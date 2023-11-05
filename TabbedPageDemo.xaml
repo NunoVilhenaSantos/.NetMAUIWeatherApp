@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage
+    x:Class="WeatherApp.TabbedPageDemo"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="TabbedPageDemo"
+    BackgroundColor="Beige"
+    SelectedTabColor="BlueViolet"
+    UnselectedTabColor="Black">
+    
+    
+    <!--
+    <VerticalStackLayout>
+        <Label
+            Text="Welcome to .NET MAUI!"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+    -->
+
+
+    <ContentPage
+        Title="Page 1"
+        BackgroundColor="BlanchedAlmond"
+        IconImageSource="dotnet_bot.svg">
+        <VerticalStackLayout>
+            <Label
+                HorizontalOptions="Center"
+                Text="Welcome to .NET MAUI!\nPage 1"
+                VerticalOptions="Center" />
+        </VerticalStackLayout>
+    </ContentPage>
+
+    <ContentPage
+        Title="Page 2"
+        BackgroundColor="Aquamarine"
+        IconImageSource="more/about_faq_help.svg">
+        <VerticalStackLayout>
+            <Label
+                HorizontalOptions="Center"
+                Text="Welcome to .NET MAUI!\nPage 2"
+                VerticalOptions="Center" />
+        </VerticalStackLayout>
+    </ContentPage>
+
+    <ContentPage
+        Title="Page 3 - About Me"
+        BackgroundColor="AntiqueWhite"
+        IconImageSource="more/about_dot_me.svg">
+        <VerticalStackLayout>
+            <Label
+                HorizontalOptions="Center"
+                Text="Welcome to .NET MAUI!"
+                VerticalOptions="Center" />
+        </VerticalStackLayout>
+    </ContentPage>
+
+    <ContentPage
+        Title="Page 4 - About App"
+        BackgroundColor="DarkKhaki"
+        IconImageSource="more/about.svg">
+        <VerticalStackLayout>
+            <Label
+                HorizontalOptions="Center"
+                Text="Welcome to .NET MAUI!\nPage 4"
+                VerticalOptions="Center" />
+        </VerticalStackLayout>
+    </ContentPage>
+
+
+</TabbedPage>

@@ -1,29 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+
 <ContentPage
     x:Class="WeatherApp.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:WeatherApp.Helpers"
     xmlns:local="clr-namespace:WeatherApp"
     BackgroundColor="{DynamicResource SecondaryColor}">
+
+
+    <!--  Conteúdo principal  -->
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="labelStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="Small" />
-                <Setter Property="TextColor" Value="Gray" />
-            </Style>
-            <Style x:Key="labelResultStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="Medium" />
-                <Setter Property="Margin" Value="10,0,0,0" />
-            </Style>
-
-            <local:LongToDateTimeConverter x:Key="longToDatetimeConverter" />
-            <local:FahrenheitToCelciusConverter x:Key="fahrenheitToCelciusConverter" />
-
+            <helpers:LongToDateTimeConverter x:Key="LongToDatetimeConverter" />
+            <helpers:FahrenheitCelsiusConverter x:Key="FahrenheitToCelsiusConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid VerticalOptions="FillAndExpand">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Clicked="OpenAppShell_Clicked"
+            Order="Primary"
+            Priority="0"
+            Text="Menu" />
+        <!--  Clicked="OpenMenu_Clicked" />  -->
+    </ContentPage.ToolbarItems>
+
+
+    <!--  Conteúdo da página principal  -->
+    <Grid Margin="20,20" VerticalOptions="FillAndExpand">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -33,18 +42,25 @@
         </Grid.RowDefinitions>
 
         <Image
+            Grid.RowSpan="4"
+            Margin="-20,-20"
             Aspect="Fill"
-            HeightRequest="300"
+            HeightRequest="330"
             Source="overlay.png"
             VerticalOptions="StartAndExpand" />
 
         <StackLayout
-            Margin="20,50"
+            Grid.Row="0"
+            Margin="0,10"
             HorizontalOptions="Start"
             Orientation="Vertical"
-            Spacing="20"
-            VerticalOptions="Start">
-            <StackLayout Orientation="Horizontal">
+            Spacing="10"
+            VerticalOptions="Center">
+
+            <StackLayout
+                Grid.Column="0"
+                HorizontalOptions="StartAndExpand"
+                Orientation="Horizontal">
                 <Label
                     FontSize="16"
                     Text="{Binding Title}"
@@ -56,26 +72,107 @@
                     TextColor="White"
                     VerticalOptions="Center" />
             </StackLayout>
+
         </StackLayout>
 
         <StackLayout
-            Margin="0,20"
+            Grid.Row="1"
+            Margin="0,0"
+            HorizontalOptions="EndAndExpand"
+            Orientation="Vertical"
+            Spacing="10"
+            VerticalOptions="Start">
+
+            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                <Frame
+                    Padding="5"
+                    BackgroundColor="Transparent"
+                    CornerRadius="25">
+                    <Button
+                        x:Name="ButtonCelsius"
+                        Clicked="OnCelsiusButtonClicked"
+                        Text="ºC"
+                        TextColor="White" />
+                </Frame>
+                <Frame
+                    Padding="5"
+                    BackgroundColor="Transparent"
+                    CornerRadius="25">
+                    <Button
+                        x:Name="ButtonFahrenheit"
+                        Clicked="OnFahrenheitButtonClicked"
+                        Text="ºF"
+                        TextColor="White" />
+                </Frame>
+                <Frame
+                    Padding="5"
+                    BackgroundColor="Transparent"
+                    CornerRadius="25">
+                    <Button
+                        x:Name="ButtonKelvin"
+                        Clicked="OnKelvinButtonClicked"
+                        Text="ºK"
+                        TextColor="White" />
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+
+
+
+        <StackLayout
+            Grid.Row="1"
+            Margin="0,0"
+            HorizontalOptions="Start"
+            Orientation="Vertical"
+            Spacing="10"
+            VerticalOptions="Start">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label
+                    x:Name="cityLatitude"
+                    Grid.Row="0"
+                    FontSize="Micro"
+                    Text="{Binding Coord.Lat, StringFormat='Latitude: {0:0}° {0:00}\' {0:00.0}\'\''}"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="cityLongitude"
+                    Grid.Row="1"
+                    FontSize="Micro"
+                    Text="{Binding Coord.Lon, StringFormat='Longitude: {0:0}° {0:00}\' {0:00.0}\'\''}"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+            </Grid>
+        </StackLayout>
+
+
+        <StackLayout
+            Grid.Row="2"
+            Margin="0,0"
             HorizontalOptions="Center"
             Orientation="Vertical"
             VerticalOptions="Center">
             <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <!--  Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImageConverter}}"  -->
                 <Image
+                    x:Name="weatherIcon"
                     HeightRequest="50"
-                    Source="weather.png"
+                    Source="{Binding Weather[0].Icon}"
                     VerticalOptions="Center"
                     WidthRequest="50" />
                 <Label
+                    x:Name="TemperatureLabel"
                     FontAttributes="Bold"
                     FontSize="70"
-                    Text="{Binding Main.Temperature, Converter={StaticResource fahrenheitToCelciusConverter}}"
+                    Text="{Binding Main.Temperature, Converter={StaticResource FahrenheitToCelsiusConverter}}"
                     TextColor="White"
                     VerticalOptions="Center" />
                 <Label
+                    x:Name="CelsiusFahrenheitLabel"
                     FontSize="34"
                     Text="°C"
                     TextColor="White"
@@ -89,13 +186,13 @@
             <Label
                 FontSize="12"
                 HorizontalOptions="Center"
-                Text="June 15,10:00AM"
+                Text="{Binding Dt, Converter={StaticResource LongToDatetimeConverter}}"
                 TextColor="White" />
         </StackLayout>
 
         <Frame
-            Grid.Row="1"
-            Margin="20,-40,20,0"
+            Grid.Row="3"
+            Margin="0,20,0,20"
             Padding="0"
             CornerRadius="10"
             HasShadow="True"
@@ -103,7 +200,7 @@
             VerticalOptions="Start">
 
             <Grid
-                Margin="0,35,0,0"
+                Margin="0,0,0,0"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="CenterAndExpand">
                 <Grid.ColumnDefinitions>
@@ -113,7 +210,13 @@
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
-                <StackLayout
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <!--<StackLayout
                     HorizontalOptions="CenterAndExpand"
                     Orientation="Vertical"
                     Spacing="10">
@@ -131,9 +234,30 @@
                             Text="Humidity"
                             TextColor="#7D7D7D" />
                     </StackLayout>
-                </StackLayout>
+                </StackLayout>-->
+                <Image
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Source="humidity.png" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="{Binding Main.Humidity}"
+                    TextColor="Black" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    FontSize="11"
+                    HorizontalOptions="Center"
+                    Text="Humidity"
+                    TextColor="#7D7D7D" />
 
-                <StackLayout
+
+                <!--<StackLayout
                     Grid.Column="1"
                     HorizontalOptions="CenterAndExpand"
                     Orientation="Vertical"
@@ -141,20 +265,38 @@
                     <Image Source="wind.png" />
                     <StackLayout HorizontalOptions="CenterAndExpand" Spacing="7">
                         <Label
+                            Grid.Row="1" Margin="10,15"
                             FontAttributes="Bold"
                             FontSize="14"
                             HorizontalOptions="Center"
                             Text="{Binding Wind.Speed}"
                             TextColor="Black" />
-                        <Label
+                        <Label Grid.Row="2"
                             FontSize="11"
                             HorizontalOptions="Center"
                             Text="Wind"
                             TextColor="#7D7D7D" />
                     </StackLayout>
-                </StackLayout>
+                </StackLayout>-->
+                <Image Grid.Column="1" Source="wind.png" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="{Binding Wind.Speed}"
+                    TextColor="Black" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    FontSize="11"
+                    HorizontalOptions="Center"
+                    Text="Wind"
+                    TextColor="#7D7D7D" />
 
-                <StackLayout
+                <!--<StackLayout
                     Grid.Column="2"
                     HorizontalOptions="CenterAndExpand"
                     Orientation="Vertical"
@@ -162,20 +304,38 @@
                     <Image Source="pressure.png" />
                     <StackLayout HorizontalOptions="CenterAndExpand" Spacing="7">
                         <Label
+                            Grid.Row="1" Margin="10,15"
                             FontAttributes="Bold"
                             FontSize="14"
                             HorizontalOptions="Center"
                             Text="{Binding Main.Pressure}"
                             TextColor="Black" />
-                        <Label
+                        <Label Grid.Row="2"
                             FontSize="11"
                             HorizontalOptions="Center"
                             Text="Pressure"
                             TextColor="#7D7D7D" />
                     </StackLayout>
-                </StackLayout>
+                </StackLayout>-->
+                <Image Grid.Column="2" Source="pressure.png" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="{Binding Main.Pressure}"
+                    TextColor="Black" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    FontSize="11"
+                    HorizontalOptions="Center"
+                    Text="Pressure"
+                    TextColor="#7D7D7D" />
 
-                <StackLayout
+                <!--<StackLayout
                     Grid.Column="3"
                     HorizontalOptions="CenterAndExpand"
                     Orientation="Vertical"
@@ -183,29 +343,48 @@
                     <Image Source="cloudiness.png" />
                     <StackLayout HorizontalOptions="CenterAndExpand" Spacing="7">
                         <Label
+                            Grid.Row="1" Margin="10,15"
                             FontAttributes="Bold"
                             FontSize="14"
                             HorizontalOptions="Center"
                             Text="{Binding Clouds.All}"
                             TextColor="Black" />
-                        <Label
+                        <Label Grid.Row="2"
                             FontSize="11"
                             HorizontalOptions="Center"
                             Text="Cloudiness"
                             TextColor="#7D7D7D" />
                     </StackLayout>
-                </StackLayout>
+                </StackLayout>-->
+                <Image Grid.Column="3" Source="cloudiness.png" />
+                <Label
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Margin="10,10"
+                    FontAttributes="Bold"
+                    FontSize="14"
+                    HorizontalOptions="Center"
+                    Text="{Binding Clouds.All}"
+                    TextColor="Black" />
+                <Label
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    FontSize="11"
+                    HorizontalOptions="Center"
+                    Text="Cloudiness"
+                    TextColor="#7D7D7D" />
 
             </Grid>
         </Frame>
 
 
-        <StackLayout
-            Grid.Row="2"
-            Margin="20,40,0,60"
+        <!--<StackLayout
+            Grid.Row="4"
+            Margin="0,0,0,0"
             Orientation="Vertical"
             Spacing="20">
-            <StackLayout Orientation="Horizontal" Spacing="40">
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <Image Source="weather_icons_70_sun_up.svg" />
                 <Label
                     FontAttributes="Bold"
                     FontSize="Small"
@@ -213,12 +392,13 @@
                     TextColor="Black"
                     VerticalOptions="Center" />
                 <Label
-                    FontSize="15"
-                    Text="{Binding Sys.Sunrise, Converter={StaticResource longToDatetimeConverter}}"
+                    FontSize="Small"
+                    Text="{Binding Sys.Sunrise, Converter={StaticResource LongToDatetimeConverter}}"
                     TextColor="Black"
                     VerticalOptions="Center" />
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Spacing="40">
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <Image Source="weather_icons_69_sun_down.svg" />
                 <Label
                     FontAttributes="Bold"
                     FontSize="Small"
@@ -226,29 +406,91 @@
                     TextColor="Black"
                     VerticalOptions="Center" />
                 <Label
-                    FontSize="15"
-                    Text="{Binding Sys.Sunset, Converter={StaticResource longToDatetimeConverter}}"
+                    FontSize="Small"
+                    Text="{Binding Sys.Sunset, Converter={StaticResource LongToDatetimeConverter}}"
                     TextColor="Black"
                     VerticalOptions="Center" />
             </StackLayout>
-        </StackLayout>
+        </StackLayout>-->
+        <Grid Grid.Row="4" Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />       
+                <!--  Define a altura automática para cada linha  -->
+                <RowDefinition Height="Auto" />       
+                <!--  Define a altura automática para a segunda linha  -->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40" />       
+                <!--  Primeira coluna com tamanho automático para as imagens  -->
+                <ColumnDefinition Width="Auto" />     
+                <!--  Segunda coluna para a primeira label  -->
+                <ColumnDefinition />                  
+                <!--  Terceira coluna para a segunda label  -->
+            </Grid.ColumnDefinitions>
+            <!--  Primeira linha  -->
+            <Image
+                Grid.Row="0"
+                Grid.Column="0"
+                Source="weather_icons_70_sun_up.svg" />
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Margin="10,0"
+                FontAttributes="Bold"
+                FontSize="Small"
+                Text="Time of Sunrise"
+                TextColor="Black"
+                VerticalOptions="Center" />
+            <Label
+                x:Name="SunriseDateTime"
+                Grid.Row="0"
+                Grid.Column="2"
+                FontSize="Small"
+                Text="{Binding Sys.Sunrise, Converter={StaticResource LongToDatetimeConverter}}"
+                TextColor="Black"
+                VerticalOptions="Center" />
+
+            <!--  Segunda linha  -->
+            <Image
+                Grid.Row="1"
+                Grid.Column="0"
+                Source="weather_icons_69_sun_down.svg" />
+            <Label
+                x:Name="SunsetDateTime"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="10,0"
+                FontAttributes="Bold"
+                FontSize="Small"
+                Text="Time of Sunset"
+                TextColor="Black"
+                VerticalOptions="Center" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="2"
+                FontSize="Small"
+                Text="{Binding Sys.Sunset, Converter={StaticResource LongToDatetimeConverter}}"
+                TextColor="Black"
+                VerticalOptions="Center" />
+        </Grid>
 
 
         <StackLayout
-            Grid.Row="3"
-            Margin="0,40,0,0"
+            Grid.Row="5"
+            Margin="0,20,0,0"
             Orientation="Horizontal">
             <Entry
-                x:Name="_cityEntry"
+                x:Name="CityEntry"
                 Margin="5,0"
                 BackgroundColor="#7c58c9"
-                CharacterSpacing="7"
+                CharacterSpacing="4"
                 HorizontalTextAlignment="Center"
-                Text="Karachi"
+                Text="Beijing"
                 TextColor="White"
                 VerticalOptions="Center"
                 WidthRequest="250" />
             <Button
+                x:Name="GetWeatherButton"
                 BackgroundColor="#7c58c9"
                 BorderColor="White"
                 BorderWidth="1"

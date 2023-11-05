@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<FlyoutPage
+    x:Class="WeatherApp.FlyoutPageDemo"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:weatherApp="clr-namespace:WeatherApp"
+    Title="WeatherApp.FlyoutPageDemo"
+    FlyoutLayoutBehavior="Default">
+
+    <FlyoutPage.Flyout>
+
+
+        <ContentPage
+            Title="FlyoutPage.Flyout ContentPage Title"
+            BackgroundColor="AntiqueWhite"
+            IconImageSource="dotnet_bot">
+            <ContentPage.ToolbarItems>
+                <ToolbarItem
+                    IconImageSource="dotnet_bot"
+                    Order="Primary"
+                    Priority="0"
+                    Text="Home" />
+                <ToolbarItem
+                    IconImageSource="dotnet_bot"
+                    Order="Primary"
+                    Priority="1"
+                    Text="Other page" />
+                <ToolbarItem
+                    IconImageSource="dotnet_bot"
+                    Order="Primary"
+                    Priority="2"
+                    Text="Definitions" />
+                <ToolbarItem
+                    IconImageSource="dotnet_bot"
+                    Order="Primary"
+                    Priority="3"
+                    Text="About" />
+            </ContentPage.ToolbarItems>
+        </ContentPage>
+
+        <!--  Página principal  -->
+        <NavigationPage>
+            <x:Arguments>
+                <weatherApp:MainPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <!--  Página "Sobre Mim"  -->
+        <NavigationPage>
+            <x:Arguments>
+                <weatherApp:DetailsPage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <!--  Página "Sobre o Aplicativo"  -->
+        <NavigationPage>
+            <x:Arguments>
+                <weatherApp:AboutMePage />
+            </x:Arguments>
+        </NavigationPage>
+
+        <!--  Outra página, se necessário  -->
+        <NavigationPage>
+            <x:Arguments>
+                <weatherApp:AboutAppPage />
+            </x:Arguments>
+        </NavigationPage>
+
+
+    </FlyoutPage.Flyout>
+
+
+
+    <!--
+    <FlyoutPage.Detail>
+
+        <NavigationPage>
+            <x:Arguments>
+                <weatherApp:MainPage />
+            </x:Arguments>
+        </NavigationPage>
+
+    </FlyoutPage.Detail>
+    -->
+
+
+
+    <!--<FlyoutPage.Detail>
+    -->
+    <!--  Página principal  -->
+    <!--
+        <NavigationPage>
+            <x:Arguments>
+                <local:MainPage />
+            </x:Arguments>
+        </NavigationPage>
+
+    -->
+    <!--  Página "Sobre Mim"  -->
+    <!--
+        <NavigationPage>
+            <x:Arguments>
+                <local:SobreMimPage />
+            </x:Arguments>
+        </NavigationPage>
+
+    -->
+    <!--  Página "Sobre o Aplicativo"  -->
+    <!--
+        <NavigationPage>
+            <x:Arguments>
+                <local:SobreAppPage />
+            </x:Arguments>
+        </NavigationPage>
+
+    -->
+    <!--  Outra página, se necessário  -->
+    <!--
+        <NavigationPage>
+            <x:Arguments>
+                <local:OutraPagina />
+            </x:Arguments>
+        </NavigationPage>
+    </FlyoutPage.Detail>-->
+
+
+
+
+
+
+    <!--
+    <FlyoutItem Title="Home" Icon="home.png">
+       <ShellContent ContentTemplate="{DataTemplate weatherApp:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Other page" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate weatherApp:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Definitions" Icon="home.png">
+        <ShellContent ContentTemplate="{DataTemplate weatherApp:MainPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="About" Icon="about.png">
+        <ShellContent ContentTemplate="{DataTemplate weatherApp:AboutPage}" />
+    </FlyoutItem>
+    -->
+
+
+</FlyoutPage>
