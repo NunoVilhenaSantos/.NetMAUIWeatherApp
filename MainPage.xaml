@@ -1,12 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 
 <ContentPage
     x:Class="WeatherApp.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:helpers="clr-namespace:WeatherApp.Helpers"
-    xmlns:local="clr-namespace:WeatherApp"
-    xmlns:weatherApp="clr-namespace:WeatherApp"
     BackgroundColor="{DynamicResource SecondaryColor}">
 
 
@@ -60,7 +58,6 @@
             VerticalOptions="Center">
 
             <StackLayout
-                Grid.Column="0"
                 HorizontalOptions="StartAndExpand"
                 Orientation="Horizontal">
                 <Label
@@ -118,7 +115,6 @@
                 </Frame>
             </StackLayout>
         </StackLayout>
-
 
 
         <StackLayout
@@ -506,7 +502,6 @@
         </StackLayout>
 
 
-
         <StackLayout
             Grid.Row="6"
             Margin="0,20,0,0"
@@ -555,9 +550,6 @@
 
 
         </StackLayout>
-
-
-
 
 
         <StackLayout
@@ -619,9 +611,6 @@
 
 
         </StackLayout>
-
-
-
 
 
     </Grid>

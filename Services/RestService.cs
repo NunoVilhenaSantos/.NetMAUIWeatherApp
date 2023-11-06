@@ -5,14 +5,12 @@ using WeatherApp.Data;
 namespace WeatherApp.Services;
 
 /// <summary>
-///
 /// </summary>
 public class RestService : IDisposable
 {
     private readonly HttpClient _client;
 
     /// <summary>
-    ///
     /// </summary>
     public RestService()
     {
@@ -20,8 +18,14 @@ public class RestService : IDisposable
     }
 
 
+    /// <inheritdoc />
+    public void Dispose()
+    {
+        throw new NotImplementedException();
+    }
+
+
     /// <summary>
-    ///
     /// </summary>
     /// <param name="query"></param>
     /// <returns></returns>
@@ -52,7 +56,6 @@ public class RestService : IDisposable
 
 
     /// <summary>
-    ///
     /// </summary>
     /// <param name="query"></param>
     /// <returns></returns>
@@ -81,14 +84,5 @@ public class RestService : IDisposable
         }
 
         return weatherCities;
-    }
-
-
-
-
-    /// <inheritdoc />
-    public void Dispose()
-    {
-        throw new NotImplementedException();
     }
 }

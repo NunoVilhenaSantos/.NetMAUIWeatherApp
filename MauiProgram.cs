@@ -1,12 +1,10 @@
 ﻿namespace WeatherApp;
 
 /// <summary>
-///
 /// </summary>
 public static class MauiProgram
 {
     /// <summary>
-    ///
     /// </summary>
     /// <returns></returns>
     public static MauiApp CreateMauiApp()
@@ -37,9 +35,6 @@ public static class MauiProgram
             ;
 
 
- 
         return builder.Build();
     }
-
-
 }

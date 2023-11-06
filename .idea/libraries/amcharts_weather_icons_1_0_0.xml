@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="amcharts_weather_icons_1.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Resources/amcharts_weather_icons_1.0.0.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?>
-    
+<?xml version="1.0" encoding="utf-8"?>
+
 <FlyoutPage
     x:Class="WeatherApp.FlyoutPageNew"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -9,15 +9,14 @@
     FlyoutLayoutBehavior="Default">
 
 
-
     <FlyoutPage.Flyout>
         <ContentPage Title="Master Page Menu" BackgroundColor="Aqua">
-            <Label Text="Master Page Menu Label" FontSize="Large" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+            <Label Text="Master Page Menu Label" FontSize="Large" HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand" />
         </ContentPage>
     </FlyoutPage.Flyout>
 
-    
-    
+
     <FlyoutPage.Detail>
         <!--  Página principal  -->
         <NavigationPage>
@@ -26,9 +25,6 @@
             </x:Arguments>
         </NavigationPage>
     </FlyoutPage.Detail>
-
-
-
 
 
 </FlyoutPage>

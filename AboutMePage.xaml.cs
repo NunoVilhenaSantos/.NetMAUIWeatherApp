@@ -1,11 +1,9 @@
-using System.Diagnostics;
 using WeatherApp.Data;
 
 namespace WeatherApp;
 
 public partial class AboutMePage : ContentPage
 {
-
     private readonly AuthorInfo _authorInfo;
 
 
@@ -18,7 +16,7 @@ public partial class AboutMePage : ContentPage
         BindingContext = _authorInfo;
 
 
-        // Definir informações do autor
+        // Definir informaÃ§Ãµes do autor
         // _authorInfo.Name = "Nome do Autor";
         // _authorInfo.Email = "email@autor.com";
         // _authorInfo.Email2 = "email@autor.com";
@@ -27,7 +25,7 @@ public partial class AboutMePage : ContentPage
         // _authorInfo.MobilePhone= "telefone do autor";
 
 
-        // Exibir informações do autor na página
+        // Exibir informaÃ§Ãµes do autor na pÃ¡gina
         // AuthorNameLabel.Text = "Autor: " + _authorInfo.Name;
         // AuthorEmailLabel.Text = "E-mail: " + _authorInfo.Email;
         // AuthorEmail2Label.Text = "E-mail: " + _authorInfo.Email2;
@@ -35,5 +33,4 @@ public partial class AboutMePage : ContentPage
         // AuthorAddressLabel.Text = "Address: " + _authorInfo.Address;
         // AuthorMobilePhoneLabel.Text = "MobilePhone: " + _authorInfo.MobilePhone;
     }
-
 }

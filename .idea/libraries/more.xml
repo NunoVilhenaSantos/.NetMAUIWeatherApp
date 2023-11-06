@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="more">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/Resources/Images/more/amcharts_weather_icons_1.0.0.zip!/" />
+      <root url="jar://$PROJECT_DIR$/Resources/Images/more/weather_icons_dev.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

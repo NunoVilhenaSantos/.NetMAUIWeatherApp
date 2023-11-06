@@ -36,111 +36,111 @@
 
     <ItemGroup>
         <!-- App Icon -->
-        <MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#512BD4" />
+        <MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#512BD4"/>
 
         <!-- Splash Screen -->
-        <MauiSplashScreen Include="Resources\appiconfg.svg" Color="#512BD4" BaseSize="128,128" />
+        <MauiSplashScreen Include="Resources\appiconfg.svg" Color="#512BD4" BaseSize="128,128"/>
 
         <!-- Images -->
-        <MauiImage Include="Resources\Images\*" />
-        <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208" />
+        <MauiImage Include="Resources\Images\*"/>
+        <MauiImage Update="Resources\Images\dotnet_bot.svg" BaseSize="168,208"/>
 
         <!-- Custom Fonts -->
-        <MauiFont Include="Resources\Fonts\*" />
+        <MauiFont Include="Resources\Fonts\*"/>
 
         <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
-        <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+        <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)"/>
     </ItemGroup>
 
     <ItemGroup>
-        <None Remove="Resources\Images\about.svg" />
-        <None Remove="Resources\Images\about_dot_me.svg" />
-        <None Remove="Resources\Images\about_faq_help.svg" />
-        <None Remove="Resources\Images\animated\cloudy.svg" />
-        <None Remove="Resources\Images\animated\cloudy_day_1.svg" />
-        <None Remove="Resources\Images\animated\cloudy_day_3.svg" />
-        <None Remove="Resources\Images\animated\cloudy_night_1.svg" />
-        <None Remove="Resources\Images\animated\cloudy_night_2.svg" />
-        <None Remove="Resources\Images\animated\cloudy_night_3.svg" />
-        <None Remove="Resources\Images\animated\day.svg" />
-        <None Remove="Resources\Images\animated\night.svg" />
-        <None Remove="Resources\Images\animated\rainy_1.svg" />
-        <None Remove="Resources\Images\animated\rainy_2.svg" />
-        <None Remove="Resources\Images\animated\rainy_3.svg" />
-        <None Remove="Resources\Images\animated\rainy_4.svg" />
-        <None Remove="Resources\Images\animated\rainy_5.svg" />
-        <None Remove="Resources\Images\animated\rainy_6.svg" />
-        <None Remove="Resources\Images\animated\rainy_7.svg" />
-        <None Remove="Resources\Images\animated\snowy_1.svg" />
-        <None Remove="Resources\Images\animated\snowy_2.svg" />
-        <None Remove="Resources\Images\animated\snowy_3.svg" />
-        <None Remove="Resources\Images\animated\snowy_4.svg" />
-        <None Remove="Resources\Images\animated\snowy_5.svg" />
-        <None Remove="Resources\Images\animated\snowy_6.svg" />
-        <None Remove="Resources\Images\animated\thunder.svg" />
-        <None Remove="Resources\Images\animated\weather.svg" />
-        <None Remove="Resources\Images\animated\weather_sagittarius.svg" />
-        <None Remove="Resources\Images\animated\weather_sprite.svg" />
-        <None Remove="Resources\Images\animated\weather_sunset.svg" />
-        <None Remove="Resources\Images\cloudiness.png" />
-        <None Remove="Resources\Images\email.svg" />
-        <None Remove="Resources\Images\email_1_part.svg" />
-        <None Remove="Resources\Images\email_2_part.svg" />
-        <None Remove="Resources\Images\email_sign.svg" />
-        <None Remove="Resources\Images\humidity.png" />
-        <None Remove="Resources\Images\more\5896960_cloud_moon_rain_sun_weather_icon.svg" />
-        <None Remove="Resources\Images\more\5896970_cloud_moon_rain_sun_weather_icon.svg" />
-        <None Remove="Resources\Images\more\6074682_anemometer_instrument_measurement_speed_technology_icon.svg" />
-        <None Remove="Resources\Images\more\6074685_calibrated_forecast_instrument_kelvin_scale_icon.svg" />
-        <None Remove="Resources\Images\more\about.svg" />
-        <None Remove="Resources\Images\more\about_dot_me.svg" />
-        <None Remove="Resources\Images\more\about_faq_help.svg" />
-        <None Remove="Resources\Images\more\rainy_weather.svg" />
-        <None Remove="Resources\Images\more\reshot_icon_anemometer_8XFPSWKNR4.svg" />
-        <None Remove="Resources\Images\more\reshot_icon_weather_DPLG54KY69.svg" />
-        <None Remove="Resources\Images\more\reshot_icon_weather_EJPNZMV8U5.svg" />
-        <None Remove="Resources\Images\more\reshot_icon_weather_forecast_6LSJZ2XGFN.svg" />
-        <None Remove="Resources\Images\more\weather_icons_34_sun_down.svg" />
-        <None Remove="Resources\Images\more\weather_icons_35_sun_up.svg" />
-        <None Remove="Resources\Images\more\weather_icons_44.svg" />
-        <None Remove="Resources\Images\more\weather_icons_57.svg" />
-        <None Remove="Resources\Images\more\weather_icons_69_sun_down.svg" />
-        <None Remove="Resources\Images\more\weather_icons_70_sun_up.svg" />
-        <None Remove="Resources\Images\overlay.png" />
-        <None Remove="Resources\Images\person_light_skin_tone_beard.svg" />
-        <None Remove="Resources\Images\pressure.png" />
-        <None Remove="Resources\Images\telephone.svg" />
-        <None Remove="Resources\Images\telephone_booth.svg" />
-        <None Remove="Resources\Images\telephone_cabin.svg" />
-        <None Remove="Resources\Images\weather.png" />
-        <None Remove="Resources\Images\weather_icons_34_sun_down.svg" />
-        <None Remove="Resources\Images\weather_icons_35_sun_up.svg" />
-        <None Remove="Resources\Images\weather_icons_69_sun_down.svg" />
-        <None Remove="Resources\Images\weather_icons_70_sun_up.svg" />
-        <None Remove="Resources\Images\wind.png" />
+        <None Remove="Resources\Images\about.svg"/>
+        <None Remove="Resources\Images\about_dot_me.svg"/>
+        <None Remove="Resources\Images\about_faq_help.svg"/>
+        <None Remove="Resources\Images\animated\cloudy.svg"/>
+        <None Remove="Resources\Images\animated\cloudy_day_1.svg"/>
+        <None Remove="Resources\Images\animated\cloudy_day_3.svg"/>
+        <None Remove="Resources\Images\animated\cloudy_night_1.svg"/>
+        <None Remove="Resources\Images\animated\cloudy_night_2.svg"/>
+        <None Remove="Resources\Images\animated\cloudy_night_3.svg"/>
+        <None Remove="Resources\Images\animated\day.svg"/>
+        <None Remove="Resources\Images\animated\night.svg"/>
+        <None Remove="Resources\Images\animated\rainy_1.svg"/>
+        <None Remove="Resources\Images\animated\rainy_2.svg"/>
+        <None Remove="Resources\Images\animated\rainy_3.svg"/>
+        <None Remove="Resources\Images\animated\rainy_4.svg"/>
+        <None Remove="Resources\Images\animated\rainy_5.svg"/>
+        <None Remove="Resources\Images\animated\rainy_6.svg"/>
+        <None Remove="Resources\Images\animated\rainy_7.svg"/>
+        <None Remove="Resources\Images\animated\snowy_1.svg"/>
+        <None Remove="Resources\Images\animated\snowy_2.svg"/>
+        <None Remove="Resources\Images\animated\snowy_3.svg"/>
+        <None Remove="Resources\Images\animated\snowy_4.svg"/>
+        <None Remove="Resources\Images\animated\snowy_5.svg"/>
+        <None Remove="Resources\Images\animated\snowy_6.svg"/>
+        <None Remove="Resources\Images\animated\thunder.svg"/>
+        <None Remove="Resources\Images\animated\weather.svg"/>
+        <None Remove="Resources\Images\animated\weather_sagittarius.svg"/>
+        <None Remove="Resources\Images\animated\weather_sprite.svg"/>
+        <None Remove="Resources\Images\animated\weather_sunset.svg"/>
+        <None Remove="Resources\Images\cloudiness.png"/>
+        <None Remove="Resources\Images\email.svg"/>
+        <None Remove="Resources\Images\email_1_part.svg"/>
+        <None Remove="Resources\Images\email_2_part.svg"/>
+        <None Remove="Resources\Images\email_sign.svg"/>
+        <None Remove="Resources\Images\humidity.png"/>
+        <None Remove="Resources\Images\more\5896960_cloud_moon_rain_sun_weather_icon.svg"/>
+        <None Remove="Resources\Images\more\5896970_cloud_moon_rain_sun_weather_icon.svg"/>
+        <None Remove="Resources\Images\more\6074682_anemometer_instrument_measurement_speed_technology_icon.svg"/>
+        <None Remove="Resources\Images\more\6074685_calibrated_forecast_instrument_kelvin_scale_icon.svg"/>
+        <None Remove="Resources\Images\more\about.svg"/>
+        <None Remove="Resources\Images\more\about_dot_me.svg"/>
+        <None Remove="Resources\Images\more\about_faq_help.svg"/>
+        <None Remove="Resources\Images\more\rainy_weather.svg"/>
+        <None Remove="Resources\Images\more\reshot_icon_anemometer_8XFPSWKNR4.svg"/>
+        <None Remove="Resources\Images\more\reshot_icon_weather_DPLG54KY69.svg"/>
+        <None Remove="Resources\Images\more\reshot_icon_weather_EJPNZMV8U5.svg"/>
+        <None Remove="Resources\Images\more\reshot_icon_weather_forecast_6LSJZ2XGFN.svg"/>
+        <None Remove="Resources\Images\more\weather_icons_34_sun_down.svg"/>
+        <None Remove="Resources\Images\more\weather_icons_35_sun_up.svg"/>
+        <None Remove="Resources\Images\more\weather_icons_44.svg"/>
+        <None Remove="Resources\Images\more\weather_icons_57.svg"/>
+        <None Remove="Resources\Images\more\weather_icons_69_sun_down.svg"/>
+        <None Remove="Resources\Images\more\weather_icons_70_sun_up.svg"/>
+        <None Remove="Resources\Images\overlay.png"/>
+        <None Remove="Resources\Images\person_light_skin_tone_beard.svg"/>
+        <None Remove="Resources\Images\pressure.png"/>
+        <None Remove="Resources\Images\telephone.svg"/>
+        <None Remove="Resources\Images\telephone_booth.svg"/>
+        <None Remove="Resources\Images\telephone_cabin.svg"/>
+        <None Remove="Resources\Images\weather.png"/>
+        <None Remove="Resources\Images\weather_icons_34_sun_down.svg"/>
+        <None Remove="Resources\Images\weather_icons_35_sun_up.svg"/>
+        <None Remove="Resources\Images\weather_icons_69_sun_down.svg"/>
+        <None Remove="Resources\Images\weather_icons_70_sun_up.svg"/>
+        <None Remove="Resources\Images\wind.png"/>
     </ItemGroup>
 
     <ItemGroup>
-      <MauiIcon Include="Resources\Images\animated\cloudy.svg" />
-      <MauiIcon Include="Resources\Images\animated\day.svg" />
-      <MauiIcon Include="Resources\Images\animated\night.svg" />
-      <MauiIcon Include="Resources\Images\animated\thunder.svg" />
-      <MauiIcon Include="Resources\Images\animated\weather.svg" />
-      <MauiIcon Include="Resources\Images\animated\weather_sagittarius.svg" />
-      <MauiIcon Include="Resources\Images\animated\weather_sprite.svg" />
-      <MauiIcon Include="Resources\Images\animated\weather_sunset.svg" />
+        <MauiIcon Include="Resources\Images\animated\cloudy.svg"/>
+        <MauiIcon Include="Resources\Images\animated\day.svg"/>
+        <MauiIcon Include="Resources\Images\animated\night.svg"/>
+        <MauiIcon Include="Resources\Images\animated\thunder.svg"/>
+        <MauiIcon Include="Resources\Images\animated\weather.svg"/>
+        <MauiIcon Include="Resources\Images\animated\weather_sagittarius.svg"/>
+        <MauiIcon Include="Resources\Images\animated\weather_sprite.svg"/>
+        <MauiIcon Include="Resources\Images\animated\weather_sunset.svg"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3"/>
     </ItemGroup>
 
     <ItemGroup>
         <Compile Update="FlyoutPageNew.xaml.cs">
-          <DependentUpon>FlyoutPageNew.xaml</DependentUpon>
+            <DependentUpon>FlyoutPageNew.xaml</DependentUpon>
         </Compile>
         <Compile Update="FlyoutPageDemo.xaml.cs">
-          <DependentUpon>FlyoutPageDemo.xaml</DependentUpon>
+            <DependentUpon>FlyoutPageDemo.xaml</DependentUpon>
         </Compile>
         <Compile Update="Properties\Resources.Designer.cs">
             <DesignTime>True</DesignTime>
@@ -157,21 +157,21 @@
     </ItemGroup>
 
     <ItemGroup>
-      <MauiXaml Update="AboutAppPage.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
-      <MauiXaml Update="AboutMePage.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
-      <MauiXaml Update="DetailsPage.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
-      <MauiXaml Update="FlyoutPageNew.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
-      <MauiXaml Update="TabbedPageDemo.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
+        <MauiXaml Update="AboutAppPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="AboutMePage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="DetailsPage.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="FlyoutPageNew.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
+        <MauiXaml Update="TabbedPageDemo.xaml">
+            <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
     </ItemGroup>
 
     <PropertyGroup Condition="$(TargetFramework.Contains('-windows'))">

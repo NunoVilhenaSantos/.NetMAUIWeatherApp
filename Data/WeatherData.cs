@@ -1,12 +1,8 @@
 ﻿using Newtonsoft.Json;
 
-
 namespace WeatherApp.Data;
 
-
-
 /// <summary>
-///
 /// </summary>
 public class WeatherData
 {
@@ -35,20 +31,14 @@ public class WeatherData
     [JsonProperty("cod")] public long Cod { get; set; }
 }
 
-
-
 /// <summary>
-///
 /// </summary>
 public class Clouds
 {
     [JsonProperty("all")] public long All { get; set; }
 }
 
-
-
 /// <summary>
-///
 /// </summary>
 public class Coord
 {
@@ -57,10 +47,7 @@ public class Coord
     [JsonProperty("lat")] public double Lat { get; set; }
 }
 
-
-
 /// <summary>
-///
 /// </summary>
 public class Main
 {
@@ -75,11 +62,7 @@ public class Main
     [JsonProperty("temp_max")] public double TempMax { get; set; }
 }
 
-
-
-
 /// <summary>
-///
 /// </summary>
 public class Sys
 {
@@ -96,10 +79,7 @@ public class Sys
     [JsonProperty("sunset")] public long Sunset { get; set; }
 }
 
-
-
 /// <summary>
-///
 /// </summary>
 public class Weather
 {
@@ -112,10 +92,7 @@ public class Weather
     [JsonProperty("icon")] public string Icon { get; set; }
 }
 
-
-
 /// <summary>
-///
 /// </summary>
 public class Wind
 {

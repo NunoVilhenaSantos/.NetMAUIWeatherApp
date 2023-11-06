@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jl1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/obj/Debug/net7.0-android33.0/lp/95/jl/res.zip!/" />
+      <root url="jar://$PROJECT_DIR$/obj/Debug/net7.0-android33.0/lp/95/jl/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

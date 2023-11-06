@@ -1,6 +1,4 @@
-﻿
-
-using WeatherApp.Data;
+﻿using WeatherApp.Data;
 using WeatherApp.Helpers;
 using WeatherApp.Services;
 
@@ -9,14 +7,14 @@ namespace WeatherApp;
 /// <inheritdoc cref="Microsoft.Maui.Controls.ContentPage" />
 public partial class MainPage : ContentPage, IDisposable
 {
-    private WeatherData _weatherData;
-    private List<WeatherCities> _weatherCities;
-
-    private readonly RestService _restService;
     private readonly FahrenheitCelsiusConverter _fahrenheitCelsiusConverter;
 
+    private readonly RestService _restService;
+
     // Variável para rastrear a unidade de temperatura
-    private bool _isCelsius = true;
+    private readonly bool _isCelsius = true;
+    private List<WeatherCities> _weatherCities;
+    private WeatherData _weatherData;
 
 
     /// <inheritdoc />
@@ -47,14 +45,12 @@ public partial class MainPage : ContentPage, IDisposable
     }
 
 
-
     private void OpenAppShell_Clicked(object sender, EventArgs e)
     {
         // Navegue para o AppShell ou a página que contém o AppShell
-        Navigation.PushAsync(new FlyoutPageDemo()); // Ou a página que contém o AppShell
+        // Ou a página que contém o AppShell
+        Navigation.PushAsync(new FlyoutPageDemo());
     }
-
-
 
 
     private async void OnGetWeatherButtonClicked(object sender, EventArgs e)
@@ -81,7 +77,8 @@ public partial class MainPage : ContentPage, IDisposable
     }
 
 
-    private async void OnGetGeoCodingCitiesButtonClicked(object sender, EventArgs e)
+    private async void OnGetGeoCodingCitiesButtonClicked(object sender,
+        EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(CityGeoCodingEntry.Text)) return;
 
@@ -92,10 +89,9 @@ public partial class MainPage : ContentPage, IDisposable
         _weatherCities = weatherCities;
 
         // Assuming weatherCities is a list of cities with a property CityName
-        CityListView.ItemsSource = weatherCities;
+        CityListView.ItemsSource = _weatherCities;
         CityListView.IsVisible = true; // Show the list view
     }
-
 
 
     private string GenerateRequestUrlGeoCoding(string endPoint)
@@ -110,16 +106,19 @@ public partial class MainPage : ContentPage, IDisposable
 
     private void OnCitySelected(object sender, SelectedItemChangedEventArgs e)
     {
-        if (e.SelectedItem is WeatherCities selectedCity)
-        {
-            // Do something with the selected city, for example, display it in an Entry field.
-            CityGeoCodingEntry.Text = selectedCity.Name;
+        if (e.SelectedItem is not WeatherCities selectedCity) return;
 
-            // Hide the list view again
-            CityListView.IsVisible = false;
-        }
+
+        // Do something with the selected city,
+        // for example, display it in an Entry field.
+        CityGeoCodingEntry.Text = CityEntry.Text =
+            selectedCity.Name + ", " + selectedCity.Country;
+
+        GetWeatherButton.Command.Execute(null);
+
+        // Hide the list view again
+        CityListView.IsVisible = false;
     }
-
 
 
     private void OnCelsiusButtonClicked(object sender, EventArgs e)
@@ -203,7 +202,6 @@ public partial class MainPage : ContentPage, IDisposable
 
 
     /// <summary>
-    ///
     /// </summary>
     public class MenuItem
     {

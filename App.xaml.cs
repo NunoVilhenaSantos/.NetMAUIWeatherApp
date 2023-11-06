@@ -11,8 +11,7 @@ public partial class App : Application
         // MainPage = new MainPage();
 
         MainPage = new FlyoutPageDemo();
-    
+
         // MainPage = new TabbedPageDemo();
     }
-
 }

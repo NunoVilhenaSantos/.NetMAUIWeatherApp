@@ -3,12 +3,10 @@
 namespace WeatherApp.Helpers;
 
 /// <summary>
-///
 /// </summary>
 public class FahrenheitCelsiusConverter : IValueConverter
 {
     /// <summary>
-    ///
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
@@ -29,7 +27,6 @@ public class FahrenheitCelsiusConverter : IValueConverter
 
 
     /// <summary>
-    ///
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
@@ -43,7 +40,7 @@ public class FahrenheitCelsiusConverter : IValueConverter
         var celsius = (double) value;
 
         if (!Equals(celsius, null))
-            fahrenheit = (celsius * 9 / 5) + 32;
+            fahrenheit = celsius * 9 / 5 + 32;
 
         return Math.Round(fahrenheit).ToString(culture);
     }

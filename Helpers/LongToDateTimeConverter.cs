@@ -3,7 +3,6 @@
 namespace WeatherApp.Helpers;
 
 /// <summary>
-///
 /// </summary>
 public class LongToDateTimeConverter : IValueConverter
 {
@@ -11,7 +10,6 @@ public class LongToDateTimeConverter : IValueConverter
 
 
     /// <summary>
-    ///
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
@@ -28,7 +26,6 @@ public class LongToDateTimeConverter : IValueConverter
 
 
     /// <summary>
-    ///
     /// </summary>
     /// <param name="value"></param>
     /// <param name="targetType"></param>
