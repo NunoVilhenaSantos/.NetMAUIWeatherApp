@@ -9,8 +9,10 @@ namespace WeatherApp;
 /// <inheritdoc cref="Microsoft.Maui.Controls.ContentPage" />
 public partial class MainPage : ContentPage, IDisposable
 {
-    private readonly RestService _restService;
     private WeatherData _weatherData;
+    private List<WeatherCities> _weatherCities;
+
+    private readonly RestService _restService;
     private readonly FahrenheitCelsiusConverter _fahrenheitCelsiusConverter;
 
     // Variável para rastrear a unidade de temperatura
@@ -22,13 +24,16 @@ public partial class MainPage : ContentPage, IDisposable
     {
         InitializeComponent();
 
+
         _fahrenheitCelsiusConverter = new FahrenheitCelsiusConverter();
         _restService = new RestService();
         _weatherData = new WeatherData();
+        _weatherCities = new List<WeatherCities>();
 
 
         CityEntry.Text = "São Paulo";
         GetWeatherButton.Clicked += OnGetWeatherButtonClicked;
+
 
         // Agora, acione o evento manualmente
         OnGetWeatherButtonClicked(GetWeatherButton, EventArgs.Empty);
@@ -74,6 +79,47 @@ public partial class MainPage : ContentPage, IDisposable
         requestUri += $"&APPID={Constants.OpenWeatherMapApiKey}";
         return requestUri;
     }
+
+
+    private async void OnGetGeoCodingCitiesButtonClicked(object sender, EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(CityGeoCodingEntry.Text)) return;
+
+        var weatherCities = await
+            _restService.GetGeoCodingCitiesData(
+                GenerateRequestUrlGeoCoding(Constants.OpenWeatherGeoEndpoint));
+
+        _weatherCities = weatherCities;
+
+        // Assuming weatherCities is a list of cities with a property CityName
+        CityListView.ItemsSource = weatherCities;
+        CityListView.IsVisible = true; // Show the list view
+    }
+
+
+
+    private string GenerateRequestUrlGeoCoding(string endPoint)
+    {
+        var requestUri = endPoint;
+        requestUri += $"?q={CityGeoCodingEntry.Text}";
+        requestUri += "&limit=5";
+        requestUri += $"&APPID={Constants.OpenWeatherMapApiKey}";
+        return requestUri;
+    }
+
+
+    private void OnCitySelected(object sender, SelectedItemChangedEventArgs e)
+    {
+        if (e.SelectedItem is WeatherCities selectedCity)
+        {
+            // Do something with the selected city, for example, display it in an Entry field.
+            CityGeoCodingEntry.Text = selectedCity.Name;
+
+            // Hide the list view again
+            CityListView.IsVisible = false;
+        }
+    }
+
 
 
     private void OnCelsiusButtonClicked(object sender, EventArgs e)

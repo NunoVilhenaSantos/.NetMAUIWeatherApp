@@ -97,7 +97,6 @@
                     Margin="10,10"
                     FontAttributes="Bold"
                     FontSize="Small"
-                    HorizontalOptions="CenterAndExpand"
                     Text="{Binding Email}"
                     TextColor="Black"
                     VerticalOptions="CenterAndExpand" />

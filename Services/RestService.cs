@@ -51,6 +51,41 @@ public class RestService : IDisposable
     }
 
 
+    /// <summary>
+    ///
+    /// </summary>
+    /// <param name="query"></param>
+    /// <returns></returns>
+    public async Task<List<WeatherCities>> GetGeoCodingCitiesData(string query)
+    {
+        // https://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
+
+        List<WeatherCities> weatherCities = null;
+
+        try
+        {
+            var response = await _client.GetAsync(query);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+
+                weatherCities =
+                    JsonConvert.DeserializeObject<List<WeatherCities>>(content);
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            throw;
+        }
+
+        return weatherCities;
+    }
+
+
+
+
     /// <inheritdoc />
     public void Dispose()
     {
