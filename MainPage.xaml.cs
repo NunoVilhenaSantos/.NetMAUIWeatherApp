@@ -11,11 +11,12 @@ public partial class MainPage : ContentPage, IDisposable
 
     private readonly RestService _restService;
 
+
     // Variável para rastrear a unidade de temperatura
     private readonly bool _isCelsius = true;
     private List<WeatherCities> _weatherCities;
     private WeatherData _weatherData;
-
+    private WeatherCities _selectedCity;
 
     /// <inheritdoc />
     public MainPage()
@@ -39,9 +40,8 @@ public partial class MainPage : ContentPage, IDisposable
 
 
     /// <inheritdoc />
-    public void Dispose()
+    void IDisposable.Dispose()
     {
-        throw new NotImplementedException();
     }
 
 
@@ -77,8 +77,8 @@ public partial class MainPage : ContentPage, IDisposable
     }
 
 
-    private async void OnGetGeoCodingCitiesButtonClicked(object sender,
-        EventArgs e)
+    private async void OnGetGeoCodingCitiesButtonClicked(
+        object sender, EventArgs e)
     {
         if (string.IsNullOrWhiteSpace(CityGeoCodingEntry.Text)) return;
 
@@ -90,7 +90,9 @@ public partial class MainPage : ContentPage, IDisposable
 
         // Assuming weatherCities is a list of cities with a property CityName
         CityListView.ItemsSource = _weatherCities;
-        CityListView.IsVisible = true; // Show the list view
+
+        // Show the list view
+        CityListView.IsVisible = true;
     }
 
 
@@ -108,16 +110,55 @@ public partial class MainPage : ContentPage, IDisposable
     {
         if (e.SelectedItem is not WeatherCities selectedCity) return;
 
+        _selectedCity = selectedCity;
+
 
         // Do something with the selected city,
         // for example, display it in an Entry field.
-        CityGeoCodingEntry.Text = CityEntry.Text =
+        //CityGeoCodingEntry.Text = 
+        //    selectedCity.Name + ", " + selectedCity.Country;
+
+        CityEntry.Text =
             selectedCity.Name + ", " + selectedCity.Country;
 
-        GetWeatherButton.Command.Execute(null);
+
+        // Chamando o evento de clique do botão diretamente
+        // OnGetWeatherButtonClicked(this, EventArgs.Empty);
+
+
+        // Chamando o evento de clique do botão diretamente
+        OnGetWeatherLatLonButtonClicked(this, EventArgs.Empty);
+
 
         // Hide the list view again
         CityListView.IsVisible = false;
+    }
+
+
+    private async void OnGetWeatherLatLonButtonClicked(object sender,
+        EventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(CityEntry.Text)) return;
+
+        var weatherData = await
+            _restService.GetWeatherData(
+                GenerateRequestUrlLatLon(Constants.OpenWeatherMapEndpoint));
+
+        _weatherData = weatherData;
+
+        BindingContext = _weatherData;
+    }
+
+
+    private string GenerateRequestUrlLatLon(string endPoint)
+    {
+        // https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid={API key}
+
+        var requestUri = endPoint;
+        requestUri += $"?lat={_selectedCity.Lat}&lon={_selectedCity.Lon}";
+        requestUri += "&units=imperial";
+        requestUri += $"&APPID={Constants.OpenWeatherMapApiKey}";
+        return requestUri;
     }
 
 
@@ -192,20 +233,5 @@ public partial class MainPage : ContentPage, IDisposable
         }
 
         TemperatureLabel.Text = $"{temperature:N1}";
-    }
-
-
-    private void OnAboutClicked(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new AboutPage());
-    }
-
-
-    /// <summary>
-    /// </summary>
-    public class MenuItem
-    {
-        public string Title { get; set; }
-        public string Icon { get; set; }
     }
 }

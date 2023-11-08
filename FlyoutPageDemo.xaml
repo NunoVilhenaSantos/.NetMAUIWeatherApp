@@ -15,7 +15,7 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Weather Details" Icon="more/reshot_icon_weather_2_appicon.svg">
-        <ShellContent ContentTemplate="{DataTemplate weatherApp:DetailsPage}" />
+        <ShellContent ContentTemplate="{DataTemplate weatherApp:WeatherDetailsPage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="About Me" Icon="about_dot_me.svg">

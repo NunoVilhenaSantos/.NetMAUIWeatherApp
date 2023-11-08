@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 
 <ContentPage
     x:Class="WeatherApp.AboutMePage"
@@ -19,7 +19,7 @@
 
 
         <!--  Adicione a última imagem em uma Frame redonda  -->
-        <!--BackgroundColor="White"-->
+        <!--  BackgroundColor="White"  -->
         <Frame
             Margin="0,-260,0,20"
             BorderColor="Transparent"
@@ -28,7 +28,7 @@
             VerticalOptions="CenterAndExpand">
             <Image
                 HeightRequest="100"
-                Source="person_light_skin_tone_beard.svg"
+                Source="about_me/person_light_skin_tone_beard.svg"
                 WidthRequest="100" />
         </Frame>
 
@@ -64,7 +64,7 @@
                 <Image
                     Grid.Row="1"
                     Grid.Column="1"
-                    Source="person_light_skin_tone_beard.svg" />
+                    Source="about_me/person_light_skin_tone_beard.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AuthorNameLabel"
@@ -80,7 +80,7 @@
                 <Image
                     Grid.Row="2"
                     Grid.Column="1"
-                    Source="email.svg" />
+                    Source="about_me/email.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AuthorEmailLabel"
@@ -96,7 +96,7 @@
                 <Image
                     Grid.Row="3"
                     Grid.Column="1"
-                    Source="email.svg" />
+                    Source="about_me/email.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AuthorEmail2Label"
@@ -112,7 +112,7 @@
                 <Image
                     Grid.Row="4"
                     Grid.Column="1"
-                    Source="email.svg" />
+                    Source="about_me/email.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AuthorEmail3Label"
@@ -128,7 +128,7 @@
                 <Image
                     Grid.Row="5"
                     Grid.Column="1"
-                    Source="email_2_part.svg" />
+                    Source="about_me/email_2_part.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AuthorAddressLabel"
@@ -144,7 +144,7 @@
                 <Image
                     Grid.Row="6"
                     Grid.Column="1"
-                    Source="telephone_cabin.svg" />
+                    Source="about_me/telephone_cabin.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AuthorMobilePhoneLabel"

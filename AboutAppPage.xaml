@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 
 <ContentPage
     x:Class="WeatherApp.AboutAppPage"
@@ -8,10 +8,10 @@
     BackgroundColor="{DynamicResource SecondaryColor}">
 
 
-    <VerticalStackLayout>
+    <VerticalStackLayout Margin="20">
 
         <Image
-            Margin="-20,0"
+            Margin="-20,-20,-20,0"
             Aspect="Fill"
             HeightRequest="330"
             Source="overlay.svg"
@@ -27,16 +27,17 @@
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand">
 
-            <!--Source="reshot_icon_weather_2_appicon.svg"-->
-            <!--Source="reshot_icon_weather_forecast.svg"-->
+            <!--  Source="appiconfg.svg"  -->
+            <!--  Source="appiconfg_other.svg"  -->
             <Image
                 HeightRequest="100"
-                Source="reshot_icon_weather_2_appicon.svg"
+                Source="appiconfg.svg"
                 WidthRequest="100" />
+
         </Frame>
 
         <Frame
-            Margin="20"
+            Margin="0,20,0,20"
             Padding="10"
             CornerRadius="10"
             HasShadow="True"
@@ -68,7 +69,7 @@
                 <Image
                     Grid.Row="1"
                     Grid.Column="1"
-                    Source="person_light_skin_tone_beard.svg" />
+                    Source="about_me/person_light_skin_tone_beard.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AppFunctionsLabel"
@@ -85,7 +86,7 @@
                 <Image
                     Grid.Row="2"
                     Grid.Column="1"
-                    Source="email.svg" />
+                    Source="about_me/email.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AppBuildLabel"
@@ -102,7 +103,7 @@
                 <Image
                     Grid.Row="3"
                     Grid.Column="1"
-                    Source="email.svg" />
+                    Source="about_me/email.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AppVersionLabel"
@@ -118,7 +119,7 @@
                 <Image
                     Grid.Row="4"
                     Grid.Column="1"
-                    Source="email.svg" />
+                    Source="about_me/email.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AppCurrentLabel"
@@ -134,7 +135,7 @@
                 <Image
                     Grid.Row="5"
                     Grid.Column="1"
-                    Source="email_2_part.svg" />
+                    Source="about_me/email_2_part.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AppNameLabel"
@@ -150,7 +151,7 @@
                 <Image
                     Grid.Row="6"
                     Grid.Column="1"
-                    Source="telephone_cabin.svg" />
+                    Source="about_me/telephone_cabin.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AppPackageNameLabel"
@@ -166,7 +167,7 @@
                 <Image
                     Grid.Row="7"
                     Grid.Column="1"
-                    Source="telephone_cabin.svg" />
+                    Source="about_me/telephone_cabin.svg" />
                 <!--  HorizontalOptions="Center"  -->
                 <Label
                     x:Name="AppPackagingModelLabel"

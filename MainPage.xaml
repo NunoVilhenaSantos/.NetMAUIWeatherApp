@@ -10,10 +10,34 @@
 
     <!--  Conteúdo principal  -->
     <ContentPage.Resources>
+
         <ResourceDictionary>
+
             <helpers:FahrenheitCelsiusConverter x:Key="FahrenheitToCelsiusConverter" />
             <helpers:LongToDateTimeConverter x:Key="LongToDatetimeConverter" />
             <helpers:StringToImageConverter x:Key="StringToImageConverter" />
+
+            <Style x:Key="EntryStyle" TargetType="Entry" x:FieldModifier="protected">
+                <Setter Property="BackgroundColor">
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="iOS" Value="#7c58c9" />
+                        <On Platform="Android" Value="#7c58c9" />
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="TextColor">
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="iOS" Value="White" />
+                        <On Platform="Android" Value="White" />
+                    </OnPlatform>
+                </Setter>
+                <Setter Property="PlaceholderColor">
+                    <OnPlatform x:TypeArguments="Color">
+                        <On Platform="iOS" Value="White" />
+                        <On Platform="Android" Value="White" />
+                    </OnPlatform>
+                </Setter>
+            </Style>
+
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -41,11 +65,11 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <!--  HeightRequest="330"  -->
         <Image
             Grid.RowSpan="4"
             Margin="-20,-20,-20,0"
             Aspect="Fill"
-            HeightRequest="330"
             Source="overlay.png"
             VerticalOptions="StartAndExpand" />
 
@@ -57,16 +81,14 @@
             Spacing="10"
             VerticalOptions="Center">
 
-            <StackLayout
-                HorizontalOptions="StartAndExpand"
-                Orientation="Horizontal">
+            <StackLayout HorizontalOptions="StartAndExpand" Orientation="Horizontal">
                 <Label
-                    FontSize="16"
+                    FontSize="Medium"
                     Text="{Binding Title}"
                     TextColor="White"
                     VerticalOptions="Center" />
                 <Label
-                    FontSize="16"
+                    FontSize="Medium"
                     Text="{Binding Sys.Country, StringFormat=', {0}'}"
                     TextColor="White"
                     VerticalOptions="Center" />
@@ -133,14 +155,16 @@
                 <Label
                     x:Name="cityLatitude"
                     Grid.Row="0"
-                    FontSize="Micro"
+                    FontAttributes="Bold"
+                    FontSize="Small"
                     Text="{Binding Coord.Lat, StringFormat='Latitude: {0:0}° {0:00}\' {0:00.0}\'\''}"
                     TextColor="White"
                     VerticalOptions="Center" />
                 <Label
                     x:Name="cityLongitude"
                     Grid.Row="1"
-                    FontSize="Micro"
+                    FontAttributes="Bold"
+                    FontSize="Small"
                     Text="{Binding Coord.Lon, StringFormat='Longitude: {0:0}° {0:00}\' {0:00.0}\'\''}"
                     TextColor="White"
                     VerticalOptions="Center" />
@@ -159,10 +183,10 @@
                 <!--  Source="{Binding Weather[0].Icon}"  -->
                 <Image
                     x:Name="weatherIcon"
-                    HeightRequest="60"
+                    HeightRequest="100"
                     Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImageConverter}}"
                     VerticalOptions="Center"
-                    WidthRequest="60" />
+                    WidthRequest="100" />
                 <Label
                     x:Name="TemperatureLabel"
                     FontAttributes="Bold"
@@ -172,18 +196,18 @@
                     VerticalOptions="Center" />
                 <Label
                     x:Name="CelsiusFahrenheitLabel"
-                    FontSize="34"
+                    FontSize="40"
                     Text="°C"
                     TextColor="White"
                     VerticalOptions="Center" />
             </StackLayout>
             <Label
-                FontSize="16"
+                FontSize="Medium"
                 HorizontalOptions="Center"
                 Text="{Binding Weather[0].Description}"
                 TextColor="White" />
             <Label
-                FontSize="12"
+                FontSize="Default"
                 HorizontalOptions="Center"
                 Text="{Binding Dt, Converter={StaticResource LongToDatetimeConverter}}"
                 TextColor="White" />
@@ -224,12 +248,12 @@
                     <StackLayout HorizontalOptions="CenterAndExpand" Spacing="7">
                         <Label
                             FontAttributes="Bold"
-                            FontSize="14"
+                            FontSize="Medium"
                             HorizontalOptions="Center"
                             Text="{Binding Main.Humidity}"
                             TextColor="Black" />
                         <Label
-                            FontSize="11"
+                            FontSize="Default"
                             HorizontalOptions="Center"
                             Text="Humidity"
                             TextColor="#7D7D7D" />
@@ -244,14 +268,14 @@
                     Grid.Column="0"
                     Margin="10,10"
                     FontAttributes="Bold"
-                    FontSize="14"
+                    FontSize="Medium"
                     HorizontalOptions="Center"
                     Text="{Binding Main.Humidity}"
                     TextColor="Black" />
                 <Label
                     Grid.Row="2"
                     Grid.Column="0"
-                    FontSize="11"
+                    FontSize="Default"
                     HorizontalOptions="Center"
                     Text="Humidity"
                     TextColor="#7D7D7D" />
@@ -267,12 +291,12 @@
                         <Label
                             Grid.Row="1" Margin="10,15"
                             FontAttributes="Bold"
-                            FontSize="14"
+                            FontSize="Medium"
                             HorizontalOptions="Center"
                             Text="{Binding Wind.Speed}"
                             TextColor="Black" />
                         <Label Grid.Row="2"
-                            FontSize="11"
+                            FontSize="Default"
                             HorizontalOptions="Center"
                             Text="Wind"
                             TextColor="#7D7D7D" />
@@ -286,14 +310,14 @@
                     Grid.Column="1"
                     Margin="10,10"
                     FontAttributes="Bold"
-                    FontSize="14"
+                    FontSize="Medium"
                     HorizontalOptions="Center"
                     Text="{Binding Wind.Speed}"
                     TextColor="Black" />
                 <Label
                     Grid.Row="2"
                     Grid.Column="1"
-                    FontSize="11"
+                    FontSize="Default"
                     HorizontalOptions="Center"
                     Text="Wind"
                     TextColor="#7D7D7D" />
@@ -308,12 +332,12 @@
                         <Label
                             Grid.Row="1" Margin="10,15"
                             FontAttributes="Bold"
-                            FontSize="14"
+                            FontSize="Medium"
                             HorizontalOptions="Center"
                             Text="{Binding Main.Pressure}"
                             TextColor="Black" />
                         <Label Grid.Row="2"
-                            FontSize="11"
+                            FontSize="Default"
                             HorizontalOptions="Center"
                             Text="Pressure"
                             TextColor="#7D7D7D" />
@@ -325,14 +349,14 @@
                     Grid.Column="2"
                     Margin="10,10"
                     FontAttributes="Bold"
-                    FontSize="14"
+                    FontSize="Medium"
                     HorizontalOptions="Center"
                     Text="{Binding Main.Pressure}"
                     TextColor="Black" />
                 <Label
                     Grid.Row="2"
                     Grid.Column="2"
-                    FontSize="11"
+                    FontSize="Default"
                     HorizontalOptions="Center"
                     Text="Pressure"
                     TextColor="#7D7D7D" />
@@ -347,12 +371,12 @@
                         <Label
                             Grid.Row="1" Margin="10,15"
                             FontAttributes="Bold"
-                            FontSize="14"
+                            FontSize="Medium"
                             HorizontalOptions="Center"
                             Text="{Binding Clouds.All}"
                             TextColor="Black" />
                         <Label Grid.Row="2"
-                            FontSize="11"
+                            FontSize="Default"
                             HorizontalOptions="Center"
                             Text="Cloudiness"
                             TextColor="#7D7D7D" />
@@ -364,14 +388,14 @@
                     Grid.Column="3"
                     Margin="10,10"
                     FontAttributes="Bold"
-                    FontSize="14"
+                    FontSize="Medium"
                     HorizontalOptions="Center"
                     Text="{Binding Clouds.All}"
                     TextColor="Black" />
                 <Label
                     Grid.Row="2"
                     Grid.Column="3"
-                    FontSize="11"
+                    FontSize="Default"
                     HorizontalOptions="Center"
                     Text="Cloudiness"
                     TextColor="#7D7D7D" />
@@ -480,95 +504,75 @@
         <StackLayout
             Grid.Row="5"
             Margin="0,20,0,0"
+            HorizontalOptions="StartAndExpand"
             Orientation="Horizontal">
-            <Entry
-                x:Name="CityEntry"
-                Margin="5,0"
-                BackgroundColor="#7c58c9"
-                CharacterSpacing="4"
-                HorizontalTextAlignment="Center"
-                Text="Beijing"
-                TextColor="White"
-                VerticalOptions="Center"
-                WidthRequest="200" />
-            <Button
-                x:Name="GetWeatherButton"
-                BackgroundColor="#7c58c9"
-                BorderColor="White"
-                BorderWidth="1"
-                Clicked="OnGetWeatherButtonClicked"
-                Text="Get Weather"
-                TextColor="White" />
+
+            <Grid ColumnSpacing="10" RowSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                    <Entry
+                        x:Name="CityEntry"
+                        BackgroundColor="{StaticResource EntryStyle}"
+                        CharacterSpacing="4"
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Type the name of city"
+                        PlaceholderColor="{StaticResource EntryStyle}"
+                        TextColor="{StaticResource EntryStyle}"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        x:Name="GetWeatherButton"
+                        BackgroundColor="{StaticResource EntryStyle}"
+                        BorderColor="White"
+                        BorderWidth="1"
+                        Clicked="OnGetWeatherButtonClicked"
+                        Text="Get Weather"
+                        TextColor="{StaticResource EntryStyle}" />
+
+                </StackLayout>
+
+
+                <StackLayout Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0">
+                    <Entry
+                        x:Name="CityGeoCodingEntry"
+                        BackgroundColor="{StaticResource EntryStyle}"
+                        CharacterSpacing="4"
+                        HorizontalTextAlignment="Center"
+                        Placeholder="Type the name of city"
+                        PlaceholderColor="{StaticResource EntryStyle}"
+                        TextColor="{StaticResource EntryStyle}"
+                        VerticalOptions="Center" />
+
+                    <Button
+                        x:Name="GetCitiesGeoCodingButton"
+                        BackgroundColor="{StaticResource EntryStyle}"
+                        BorderColor="White"
+                        BorderWidth="1"
+                        Clicked="OnGetGeoCodingCitiesButtonClicked"
+                        Text="Get Weather"
+                        TextColor="{StaticResource EntryStyle}" />
+                </StackLayout>
+
+            </Grid>
+
         </StackLayout>
 
 
         <StackLayout
             Grid.Row="6"
-            Margin="0,20,0,0"
-            Orientation="Horizontal">
-            <Entry
-                x:Name="CityGeoCodingEntry"
-                Margin="5,0"
-                BackgroundColor="#7c58c9"
-                CharacterSpacing="4"
-                HorizontalTextAlignment="Center"
-                Text="Beijing"
-                TextColor="White"
-                VerticalOptions="Center"
-                WidthRequest="100" />
-
-            <Button
-                x:Name="GetCitiesGeoCodingButton"
-                BackgroundColor="#7c58c9"
-                BorderColor="White"
-                BorderWidth="1"
-                Clicked="OnGetGeoCodingCitiesButtonClicked"
-                Text="Get Cities"
-                TextColor="White" />
-
-            <!--  Initially hidden  -->
-            <!--  IsVisible="false"  -->
-            <!--<ListView
-                x:Name="CityListView"
-                BackgroundColor="White"
-                ItemSelected="OnCitySelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Name}" />
-                                <Label Text=" - " />
-                                <Label Text="{Binding State}" />
-                                <Label Text=" (" />
-                                <Label Text="{Binding Country}" />
-                                <Label Text=")" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
-
-
-        </StackLayout>
-
-
-        <StackLayout
-            Grid.Row="7"
             Margin="0,20"
+            HorizontalOptions="StartAndExpand"
             Orientation="Horizontal">
-            <!--  Initially hidden  -->
-            <!--  IsVisible="false"  -->
-            <!--<ListView
-                x:Name="CityListView"
-                BackgroundColor="White"
-                IsVisible="false"
-                ItemSelected="OnCitySelected">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <TextCell Text="{Binding Name} - {Binding State} ({Binding Country})" />
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>-->
+
             <!--  IsVisible="false"  -->
             <ListView
                 x:Name="CityListView"
