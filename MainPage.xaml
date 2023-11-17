@@ -153,7 +153,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Label
-                    x:Name="cityLatitude"
+                    x:Name="CityLatitude"
                     Grid.Row="0"
                     FontAttributes="Bold"
                     FontSize="Small"
@@ -161,7 +161,7 @@
                     TextColor="White"
                     VerticalOptions="Center" />
                 <Label
-                    x:Name="cityLongitude"
+                    x:Name="CityLongitude"
                     Grid.Row="1"
                     FontAttributes="Bold"
                     FontSize="Small"
@@ -182,7 +182,7 @@
                 <!--  Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImageConverter}}"  -->
                 <!--  Source="{Binding Weather[0].Icon}"  -->
                 <Image
-                    x:Name="weatherIcon"
+                    x:Name="WeatherIcon"
                     HeightRequest="100"
                     Source="{Binding Weather[0].Icon, Converter={StaticResource StringToImageConverter}}"
                     VerticalOptions="Center"
@@ -304,7 +304,7 @@
                 </StackLayout>-->
 
                 <!--<Image Grid.Column="1" Source="windy.svg" />-->
-                <Image Grid.Column="1" Source="wind.png" />
+                <Image Grid.Row="0" Grid.Column="1" Source="wind.png" />
                 <Label
                     Grid.Row="1"
                     Grid.Column="1"
@@ -343,7 +343,7 @@
                             TextColor="#7D7D7D" />
                     </StackLayout>
                 </StackLayout>-->
-                <Image Grid.Column="2" Source="pressure.png" />
+                <Image Grid.Row="0" Grid.Column="2" Source="pressure.png" />
                 <Label
                     Grid.Row="1"
                     Grid.Column="2"
@@ -382,7 +382,7 @@
                             TextColor="#7D7D7D" />
                     </StackLayout>
                 </StackLayout>-->
-                <Image Grid.Column="3" Source="cloudiness.png" />
+                <Image Grid.Row="0" Grid.Column="3" Source="cloudiness.png" />
                 <Label
                     Grid.Row="1"
                     Grid.Column="3"
